@@ -24,22 +24,39 @@ function mapDraw() {
     // noStroke();
     // let rows = height / 70;
     // let cols = width / 70;
-    for (let i = 0; i < 5; i++) {			
+
+    // logic
+    // for iterator, if x is less than height and y is less than width 
+    // check snake game
+    for (let i = 0; i < 5; i++) {	
+        let r = 0;
+       while (r < height-5) {	
             let x = int(random(width));
             let y = int(random(height));	
             let col = img.get(x, y);
             col = color(red(col), green(col), blue(col), 80);
             stroke(col);
             strokeWeight(width*0.01);
-            blendMode(BURN);
+            blendMode(DODGE);
             fill(col);											
-            line(x, y, x+random(width*-0.1,width*0.1),y+random(width*0.1));
+            line(x, y, x++,y);
+        } else {
+            let x = int(random(width));
+            let y = int(random(height));	
+            let col = img.get(x, y);
+            col = color(red(col), green(col), blue(col), 80);
+            stroke(col);
+            strokeWeight(width*0.01);
+            blendMode(DODGE);
+            fill(col);											
+            line(x, y, x,y++);
         }
     // strokeWeight(0.8);
     // stroke(45);
     // // blendMode(LIGHTEST);
     // fill("rgba(255, 255, 255, 0.0)");
     // line(width/2, height/2-100, width, height-100);
+}
 }
 
 function initImage() {
